@@ -5,7 +5,11 @@ import manageRoute from "./routes/managerRoutes.js";
 const app = express();
 
 app.use(express.json());
-
+app.get("/", (req, res, next) => {
+  res.send({
+    message: "This is start of back-end",
+  });
+});
 app.use("/user", userRoute);
 app.use("/manage", manageRoute);
 await mongoose.connect(
